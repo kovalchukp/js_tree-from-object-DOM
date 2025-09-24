@@ -31,7 +31,11 @@ function createTree(element, data) {
     li.textContent = key;
     ul.appendChild(li);
 
-    if (typeof data[key] === 'object' && data[key] !== null) {
+    if (
+      typeof data[key] === 'object' &&
+      data[key] !== null &&
+      Object.keys(data[key]).length
+    ) {
       createTree(li, data[key]);
     }
   }
